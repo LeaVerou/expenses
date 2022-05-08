@@ -90,8 +90,8 @@
 					<td>Amount (<span property="currency" mv-editor="#currencies"></span>)</td>
 				</tr>
 			</thead>
-			<tbody class="hide-on-summary">
-				<tr property="services" mv-multiple>
+			<tbody mv-list class="hide-on-summary">
+				<tr property="services" mv-list-item>
 					<td>
 						[weekday(date, 'shortname')],
 						<time property="date" mv-default="[if($index=0, expense.date, $previous.date)]"></time>
