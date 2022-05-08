@@ -41,10 +41,11 @@
 	</div>
 </header>
 
-<a href="#" class="show-all">↩ Back to all invoices</a>
+<a href="#" class="show-all">↩ Back to all</a>
 
 <main mv-list>
 <article class="invoice" property="expense" mv-list-item id="invoice[id]" mv-order="desc">
+	<button class="print hide-on-print hide-on-summary" onclick="printInvoice()">Print</button>
 	<header>
 		<a href="#invoice[id]" title="Isolate invoice"><h1>#<span property="id" mv-expressions="{ }">?</span></h1></a>
 		<div class="company hide-on-summary">
@@ -126,5 +127,19 @@
 	</select>
 </div>
 
+<script>
+	// Convenience print button
+	function printInvoice() {
+		let app = Mavo.all[0];
+		let editing = app.editing;
+		if (editing) {
+			app.done();
+		}
+		window.print();
+		if (editing) {
+			app.edit();
+		}
+	}
+</script>
 </body>
 </html>

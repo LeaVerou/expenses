@@ -135,7 +135,9 @@ address, [property=notes] {
 	white-space: pre-line;
 }
 
-.show-all, button.mv-add-invoice {
+.show-all,
+button.mv-add-invoice,
+button.print {
 	display: block;
 	width: fit-content;
 	padding: .5em 1em;
@@ -194,7 +196,7 @@ body.mv-target-within {
 				transform-origin: top right;
 
 				&::before {
-					content: "Expense summary "
+					content: "Expense report "
 				}
 
 				@media print {
@@ -437,4 +439,12 @@ body:not(.mv-target-within) {
 /* No data source */
 [mv-permissions="read"] {
 
+}
+
+button.print {
+	position: absolute;
+	top: 0;
+	right: 1em;
+	border: 1px solid hsl(220 10% 50% / .5);
+	background: hsl(220 10% 95%);
 }
