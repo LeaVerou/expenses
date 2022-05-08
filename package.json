@@ -1,0 +1,28 @@
+{
+  "name": "expenses",
+  "version": "1.0.0",
+  "description": "App for generating expenses summary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx postcss \"**/*.postcss\" --base . --dir . --ext .css",
+    "build": "npm run build:css",
+    "watch:css": "npx postcss \"**/*.postcss\" --base . --dir . --ext .css --watch",
+    "watch": "npm run watch:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/designftw/website.git"
+  },
+  "author": "Lea Verou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/designftw/website/issues"
+  },
+  "homepage": "https://projects.verou.me/expenses",
+  "devDependencies": {
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
+    "postcss-nesting": "^10.1.2"
+  }
+}

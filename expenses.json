@@ -1,0 +1,58 @@
+{
+	"companyLogo": "https://lea.verou.me/logo.svg",
+	"companyName": "Lea Verou",
+	"companyAddress": "42 JavaScript Way\n\t\t\tBoston, MA 02114\n\t\t\tUSA",
+	"companyURL": "http://lea.verou.me",
+	"companyEmail": "lea@verou.me",
+	"expense": [
+		{
+			"id": "2",
+			"date": "2022-07-06",
+			"trip_title": "CSSDay 2022",
+			"currency": "$",
+			"services": [
+				{
+					"date": "2022-06-09",
+					"description": "Flight",
+					"amount": "2000"
+				},
+				{
+					"date": "2022-06-09",
+					"description": "Hotel",
+					"amount": "900"
+				},
+				{
+					"date": "2022-06-09",
+					"description": "Car rental",
+					"amount": "500"
+				}
+			]
+		},
+		{
+			"id": "1",
+			"date": "2022-10-07",
+			"recipient": {
+				"name": "John Doe",
+				"address": "2 Modern Red Square\nLong Island City\nNew York, NY 1120"
+			},
+			"currency": "$",
+			"services": [
+				{
+					"date": "2022-09-09",
+					"description": "Flight",
+					"amount": "500"
+				},
+				{
+					"date": "2022-09-10",
+					"description": "Hotel",
+					"amount": "300"
+				},
+				{
+					"date": "2022-09-10",
+					"description": "Dinner",
+					"amount": "50"
+				}
+			]
+		}
+	]
+}

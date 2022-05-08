@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>My Expenses</title>
+<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://get.mavo.io/mavo.js"></script>
+
+</head>
+
+<body mv-app="expenses" mv-storage="expenses.json">
+	<details class="change-data-source hide-on-print">
+		<summary>Use this for your own expenses!</summary>
+		<form action="">
+			<label>
+				Data (URL to a JSON file on GitHub):
+				<input name="storage" type="url" value="https://github.com/YOUR_USERNAME/REPO_NAME/expenses.json">
+			</label>
+			<button>Go</button>
+		</form>
+	</details>
+
+
+<header>
+	<h1>My Expense Reports</h1>
+
+	<div class="company">
+		<img property="companyLogo" src="https://lea.verou.me/logo.svg" />
+		<div>
+			<h2 property="companyName">Lea Verou</h2>
+			<address property="companyAddress">42 JavaScript Way
+			Boston, MA 02114
+			USA</address>
+		</div>
+		<div class="online">
+			<a property="companyURL" mv-attribute="null" href="[companyURL]" target="_blank">http://lea.verou.me</a>
+			<a property="companyEmail" mv-attribute="null" href="mailto:[companyEmail]">lea@verou.me</a>
+		</div>
+	</div>
+</header>
+
+<a href="#" class="show-all">↩ Back to all invoices</a>
+
+<main mv-list>
+<article class="invoice" property="expense" mv-list-item id="invoice[id]" mv-order="desc">
+	<header>
+		<a href="#invoice[id]" title="Isolate invoice"><h1>#<span property="id" mv-expressions="{ }">?</span></h1></a>
+		<div class="company hide-on-summary">
+			<img src="[companyLogo]" />
+			<div>
+				<h2>[companyName]</h2>
+				<address>[companyAddress]</address>
+			</div>
+			<div class="online">
+				<a href="[companyURL]" target="_blank">[companyURL]</a>
+				<a href="mailto:[companyEmail]">[companyEmail]</a>
+			</div>
+		</div>
+	</header>
+
+	<p class="invoice-date">
+		<time property="date" mv-default="[$today]">Creation date</time>
+	</p>
+
+	<article class="recipient [if(name, 'has-recipient')]">
+		<h2 class="label hide-on-summary">Recipient:</h2>
+		<div property="recipient" class="recipient-info">
+			<strong property="name"></strong>
+			<address property="address" class="hide-on-summary"></address>
+		</div>
+	</article>
+
+	<article class="trip [if(trip_title, 'has-trip')]">
+		<h2>
+			<span class="label hide-on-summary">Trip:</span>
+			<strong property="trip_title"></strong>
+		</h2>
+	</article>
+
+	<section class="services">
+		<table>
+			<caption class="hide-on-summary">Expenses:</caption>
+			<thead class="hide-on-summary">
+				<tr>
+					<td>Date</td>
+					<td>Description</td>
+					<td>Amount (<span property="currency" mv-editor="#currencies"></span>)</td>
+				</tr>
+			</thead>
+			<tbody class="hide-on-summary">
+				<tr property="services" mv-multiple>
+					<td>
+						[weekday(date, 'shortname')],
+						<time property="date" mv-default="[if($index=0, expense.date, $previous.date)]"></time>
+					</td>
+					<td property="description">
+						Description of service provided
+					</td>
+					<td>
+						[currency]<span property="amount">Amount</span>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="hide-on-summary" colspan="2">Total due:</td>
+					<td>[currency][sum(amount)]</td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
+
+	<section class="notes hide-on-summary">
+		<div property="notes"></div>
+	</section>
+</article>
+</main>
+
+<div hidden>
+	<select id="currencies">
+		<option>$</option>
+		<option>€</option>
+		<option>£</option>
+	</select>
+</div>
+
+</body>
+</html>
