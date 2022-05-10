@@ -214,8 +214,11 @@ body.mv-target-within article.invoice table caption {
 				margin-bottom: .5em;
 			}
 body.mv-target-within article.invoice table td {
-				padding: .3em .5em .1em;
+				padding: .3em .5em .1em
 			}
+body.mv-target-within article.invoice table td:first-child {
+					min-width: 16ch;
+				}
 body.mv-target-within article.invoice table td:last-child,
 			body.mv-target-within article.invoice table thead td,
 			body.mv-target-within article.invoice table tfoot td {
